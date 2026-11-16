@@ -247,12 +247,28 @@ body.no-scroll{overflow:hidden;height:100vh}
       </div>
     </div>
 
-    <div class="relative z-10 mt-6 w-[78%] max-w-xs" data-aos="zoom-in" data-aos-duration="1200">
-      <svg class="sketch absolute -inset-3 h-[calc(100%+1.5rem)] w-[calc(100%+1.5rem)]" viewBox="0 0 300 300" preserveAspectRatio="none" fill="#D7E4ED" stroke="#27455F" stroke-width="3" stroke-linecap="round" aria-hidden="true">
+    <div class="relative z-10 mt-6 aspect-square w-[78%] max-w-xs" data-aos="zoom-in" data-aos-duration="1200">
+  <svg class="sketch h-full w-full overflow-visible" viewBox="0 0 300 300" fill="none"
+       stroke-linecap="round" role="img" aria-label="Foto Khanib dan Ifa">
+    <defs>
+      <clipPath id="cover-blob">
         <path d="M30 60C60 10 240 6 275 50C300 100 292 220 268 262C230 300 70 296 38 256C6 210 4 110 30 60Z"/>
-      </svg>
-      <img src="https://cdn.jsdelivr.net/gh/zakkimusyarrof/img-byzkk@main/stpp.png" alt="Foto Khanib dan Ifa" class="cover-photo-outline relative w-full object-contain">
-    </div>
+      </clipPath>
+    </defs>
+
+    <!-- 1. latar blob -->
+    <path d="M30 60C60 10 240 6 275 50C300 100 292 220 268 262C230 300 70 296 38 256C6 210 4 110 30 60Z" fill="#D7E4ED"/>
+
+    <!-- 2. foto, dipotong mengikuti bentuk blob -->
+    <image href="https://cdn.jsdelivr.net/gh/zakkimusyarrof/img-byzkk@main/stpp.png"
+           x="0" y="0" width="300" height="300"
+           preserveAspectRatio="xMidYMax slice" clip-path="url(#cover-blob)"/>
+
+    <!-- 3. garis tepi di paling atas, supaya tidak tertutup foto -->
+    <path d="M30 60C60 10 240 6 275 50C300 100 292 220 268 262C230 300 70 296 38 256C6 210 4 110 30 60Z"
+          stroke="#27455F" stroke-width="3"/>
+  </svg>
+</div>
 
     <div class="relative z-10 mt-auto pt-10 text-center">
       <p class="font-caveat text-2xl">Kepada Yth.</p>
@@ -307,7 +323,7 @@ body.no-scroll{overflow:hidden;height:100vh}
 
       <div class="relative mx-auto mt-6 w-full max-w-sm pt-[30%]" data-aos="zoom-in" data-aos-delay="250">
         <div class="relative -translate-y-4">
-          <img src="https://cdn.jsdelivr.net/gh/zakkimusyarrof/img-src@main/stk.webp" alt="Ilustrasi mempelai" class="wipe block w-full mix-blend-multiply">
+          <figure class="polaroid tilt-r" data-aos="fade-left"><img src="https://cdn.jsdelivr.net/gh/zakkimusyarrof/img-src@main/stk.webp" alt="Khanib+Ifa" loading="lazy"></figure>
           <i class="fa-solid fa-heart fa-beat absolute -left-2 top-[8%] text-3xl text-rose" style="--fa-animation-duration:1.8s"></i>
           <i class="fa-solid fa-heart fa-beat absolute left-3 top-[18%] text-xl text-rose" style="--fa-animation-duration:2.2s"></i>
           <i class="fa-solid fa-heart fa-beat absolute -right-1 top-[4%] text-3xl text-rose" style="--fa-animation-duration:2s"></i>
@@ -439,7 +455,7 @@ body.no-scroll{overflow:hidden;height:100vh}
   </section>
 
   <!-- MEMPELAI -->
-  <section id="couple" class="relative overflow-hidden bg-cream px-6 py-16 text-center">
+  <section id="couple" class="doodle-paper relative overflow-hidden bg-cream px-6 py-16 text-center">
     <div class="mx-auto max-w-md">
       <h2 class="font-kaushan text-4xl text-sage" data-aos="fade-down">Kedua Mempelai</h2>
       <p class="mx-auto mt-5 max-w-sm font-kaushan text-base leading-8" data-aos="fade-up">
@@ -452,12 +468,13 @@ body.no-scroll{overflow:hidden;height:100vh}
           <path d="M118 188C150 230 190 300 205 350C215 380 195 400 180 385C168 370 175 335 195 325C220 318 232 350 214 372C196 392 230 410 245 440C262 475 258 515 240 540"/>
         </svg>
 
-        <i class="fa-solid fa-heart float absolute left-[8%] top-[60%] -rotate-12 text-6xl text-rose"></i>
-        <i class="fa-solid fa-heart float absolute left-[24%] top-[68%] rotate-6 text-5xl text-rose" style="animation-delay:-1s"></i>
-        <i class="fa-solid fa-heart float absolute left-[13%] top-[77%] -rotate-6 text-4xl text-rose" style="animation-delay:-2s"></i>
-        <i class="fa-solid fa-heart float absolute right-[14%] top-[10%] -rotate-6 text-5xl text-rose"></i>
-        <i class="fa-solid fa-heart float absolute right-[8%] top-[17%] rotate-12 text-4xl text-rose" style="animation-delay:-1s"></i>
-        <i class="fa-solid fa-heart float absolute right-[16%] top-[23%] -rotate-12 text-3xl text-rose" style="animation-delay:-2s"></i>
+        <!-- Dekorasi kiri bawah -->
+<img src="https://cdn.jsdelivr.net/gh/zakkimusyarrof/img-src@main/row.png" alt="" aria-hidden="true" loading="lazy"
+     class="float pointer-events-none absolute left-[4%] top-[58%] w-[30%] max-w-[8rem] object-contain">
+
+<!-- Dekorasi kanan atas -->
+<img src="https://cdn.jsdelivr.net/gh/zakkimusyarrof/img-src@main/ily.png" alt="" aria-hidden="true" loading="lazy"
+     class="float pointer-events-none absolute right-[4%] top-[8%] w-[30%] max-w-[8rem] object-contain" style="animation-delay:-1.5s">
 
         <div class="absolute left-0 top-0 w-[58%]" data-aos="fade-right">
           <div class="couple-frame mx-auto">
