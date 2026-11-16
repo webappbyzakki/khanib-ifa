@@ -163,9 +163,16 @@ body.no-scroll{overflow:hidden;height:100vh}
 
 @media (prefers-reduced-motion:reduce){
   *,*::before{animation:none!important;transition:none!important}
-  .draw path,.draw circle,.draw ellipse{stroke-dashoffset:0}
+  .draw path,.draw circle,.draw ellipse{stroke-dashoffset:0}, .wipe{clip-path:none}
   #falling-flowers{display:none}
 }
+
+.head{position:absolute;left:var(--x);top:var(--y);width:var(--w);height:auto;
+  translate:-50% -88%;transform-origin:50% 88%;pointer-events:none;
+  animation:headSway 2.8s ease-in-out infinite}
+.wipe{clip-path:inset(0 100% 0 0)}
+.aos-animate .wipe{animation:wipe 2.2s ease-out forwards}
+@keyframes wipe{to{clip-path:inset(0)}}
 </style>
 </head>
 
