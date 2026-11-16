@@ -235,20 +235,19 @@ body.no-scroll{overflow:hidden;height:100vh}
 
 <!-- ================= MUSIK & NAVIGASI ================= -->
 <div id="floating-elements" class="hidden opacity-0 transition-opacity duration-700 relative z-[60]">
-  <button id="music-btn" onclick="toggleMusic()" aria-label="Putar atau jeda musik"
-    class="fixed right-6 top-6 z-50 rounded-full border border-gold/30 bg-black/90 p-3 text-gold shadow-lg backdrop-blur transition hover:scale-105">
-    <i id="music-icon" class="fa-solid fa-music flex h-6 w-6 items-center justify-center text-xl"></i>
-  </button>
+  <button id="music-btn" class="ui idle fixed right-4 z-[60]" style="top:calc(1rem + env(safe-area-inset-top))" onclick="toggleMusic()" aria-label="Putar atau jeda musik">
+  <i id="music-icon" class="fa-solid fa-music"></i>
+</button>
 
-  <nav class="bottom-nav fixed bottom-6 left-1/2 z-50 flex -translate-x-1/2 gap-5 rounded-full px-6 py-3 md:gap-10" aria-label="Navigasi">
-    <a href="#home" class="nav-link active" aria-label="Beranda"><i class="fa-solid fa-house"></i></a>
-    <a href="#gallery" class="nav-link" aria-label="Galeri"><i class="fa-solid fa-images"></i></a>
-    <a href="#couple" class="nav-link" aria-label="Mempelai"><i class="fa-solid fa-heart"></i></a>
-    <a href="#event" class="nav-link" aria-label="Acara"><i class="fa-solid fa-calendar-check"></i></a>
-    <a href="#gift" class="nav-link" aria-label="Hadiah"><i class="fa-solid fa-gift"></i></a>
-    <a href="#wishes" class="nav-link" aria-label="Ucapan"><i class="fa-solid fa-comment-dots"></i></a>
-  </nav>
-</div>
+<nav class="ui dock fixed left-1/2 z-[60] -translate-x-1/2" style="bottom:calc(1.1rem + env(safe-area-inset-bottom))" aria-label="Navigasi">
+  <a href="#home" class="nav-link active" aria-label="Beranda"><i class="fa-solid fa-house"></i><span>Beranda</span></a>
+  <a href="#gallery" class="nav-link" aria-label="Galeri"><i class="fa-solid fa-images"></i><span>Galeri</span></a>
+  <a href="#couple" class="nav-link" aria-label="Mempelai"><i class="fa-solid fa-heart"></i><span>Mempelai</span></a>
+  <a href="#event" class="nav-link" aria-label="Acara"><i class="fa-solid fa-calendar-check"></i><span>Acara</span></a>
+  <a href="#gift" class="nav-link" aria-label="Hadiah"><i class="fa-solid fa-gift"></i><span>Hadiah</span></a>
+  <a href="#wishes" class="nav-link" aria-label="Ucapan"><i class="fa-solid fa-comment-dots"></i><span>Ucapan</span></a>
+</nav>
+
 
 <!-- ================= KONTEN ================= -->
 <main id="main-content" class="hidden bg-wine">
@@ -581,18 +580,13 @@ AOS.init({ once: false, duration: 900, offset: 50 });
 function openInvitation() {
   audio.play().catch(() => {});
   $('main-content').classList.remove('hidden');
-  const fl = $('floating-elements');
-  fl.classList.remove('hidden');
-  requestAnimationFrame(() => requestAnimationFrame(() => fl.classList.remove('opacity-0')));
   const cover = $('cover-screen');
   cover.style.transform = 'translateY(-100%)';
   document.body.classList.remove('no-scroll');
-  setTimeout(() => {
-    cover.remove();
-    AOS.refreshHard();
-    startPetals();
-  }, 1000);
+  document.body.classList.add('opened');   /* nav & tombol musik langsung muncul */
+  setTimeout(() => { cover.remove(); AOS.refreshHard(); startPetals(); }, 1000);
 }
+
 
 /* ---------- Musik ---------- */
 const setMusicIcon = on => $('music-icon').className =
