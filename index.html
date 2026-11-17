@@ -289,8 +289,8 @@ body.no-scroll{overflow:hidden;height:100vh}
 </div>
 
 <!-- ================= MUSIK & NAVIGASI ================= -->
-<div id="floating-elements" class="hidden opacity-0 transition-opacity duration-700 relative z-[60]">
-  <button id="music-btn" type="button" onclick="toggleMusic()" aria-label="Putar atau jeda musik" aria-pressed="false" class="music-btn">
+<div id="floating-elements" class="hidden opacity-0 transition-opacity duration-300 relative z-[110]">
+	<button id="music-btn" type="button" onclick="toggleMusic()" aria-label="Putar atau jeda musik" aria-pressed="false" class="music-btn">
     <i id="music-icon" class="fa-solid fa-music text-lg"></i>
   </button>
 
@@ -434,9 +434,9 @@ body.no-scroll{overflow:hidden;height:100vh}
     <span class="grid aspect-square place-items-center">26</span>
 
     <!-- Tanggal pernikahan -->
-    <span class="relative grid aspect-square place-items-center">
-    <span class="absolute inset-0.5 animate-ping rounded-full bg-brass/40" aria-hidden="true"></span>
-    <span class="relative grid h-full w-full place-items-center rounded-full bg-brass-200 font-bold text-ink shadow-lg">27</span>
+     <span class="relative grid aspect-square place-items-center">
+      <span class="absolute inset-0 animate-ping rounded-full bg-gold/50" aria-hidden="true"></span>
+      <span class="relative grid h-full w-full -rotate-6 place-items-center rounded-full border-[3px] border-wine bg-gold text-wine shadow-[2px_2px_0_#1F3B57]">27</span>
     </span>
 
     <span class="grid aspect-square place-items-center">28</span>
@@ -662,6 +662,8 @@ const setMusicIcon = on => {
   $('music-btn').classList.toggle('playing', on);
   $('music-btn').setAttribute('aria-pressed', on);
 };
+	audio.onplay = () => setMusicIcon(true);
+audio.onpause = () => setMusicIcon(false);
 const toggleMusic = () => audio.paused ? audio.play().catch(() => {}) : audio.pause();
 
 let resume = false;
